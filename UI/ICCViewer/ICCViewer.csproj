@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -7,11 +7,12 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>ICCViewer</RootNamespace>
     <AssemblyName>ICCViewer</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <DoNotCopyLocalIfInGac>true</DoNotCopyLocalIfInGac>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
@@ -63,16 +64,11 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ICCViewerLib\ICCViewerLib.csproj">
-      <Project>{87AA1B67-8992-458C-BC14-FBEAFD653D2F}</Project>
-      <Name>ICCViewerLib</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="Mac\MyApp.app\Contents\Info.plist" />
     <None Include="Mac\MyApp.app\Contents\MacOS\Launcher.exec" />
     <None Include="Mac\MyApp.app\Contents\Resources\Icon.icns" />
@@ -80,6 +76,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Mac\MyApp.app\Contents\MonoBundle\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ICCViewerLib\ICCViewerLib.csproj">
+      <Project>{87aa1b67-8992-458c-bc14-fbeafd653d2f}</Project>
+      <Name>ICCViewerLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="..\..\packages\Eto.Platform.Mac.Template.2.2.0\build\Eto.Platform.Mac.Template.targets" Condition="Exists('..\..\packages\Eto.Platform.Mac.Template.2.2.0\build\Eto.Platform.Mac.Template.targets')" />
